@@ -136,6 +136,28 @@
             </div>
         
         </div>
+            <div class="card bg-light text-black mb-4">
+            <div class="card-body">
+               Total  Sales
+            <?php
+                include 'partials/_dbconnect.php';
+                $dash_amount_query = "SELECT SUM(amount) total FROM orders";
+                $dash_amount_query_run = mysqli_query($conn, $dash_amount_query);
+                
+                if($amount_total = mysqli_fetch_array($dash_amount_query_run))
+                {
+                    echo '<h4 class="mb-0 text-center">'.$amount_total['total'].'</h4>';
+                }
+                else
+                {
+                    echo '<h4 class="mb-0 text-center">0</h4>';
+                }
+            ?>
+            </div>
+              <h4 class="mb-0 text-center"></h4>
+            <div class="card-footer d-flex align-items-center justify-content-between mb-3">
+            </div>
+</div>
     
     </div>
     
